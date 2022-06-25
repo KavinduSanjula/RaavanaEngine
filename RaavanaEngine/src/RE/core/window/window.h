@@ -39,6 +39,9 @@ namespace RE {
 		void Update();
 
 		bool IsKeyPressed(int key) const;
+
+
+		void DumpGlInfo() const;
 		
 
 	private:

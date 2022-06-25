@@ -60,6 +60,12 @@ namespace RE {
 		return false;
 	}
 
+	void Window::DumpGlInfo() const
+	{
+		std::string version = std::string((const char*)glGetString(GL_VERSION));
+		LOG_INF("OpenGL Version - " + version);
+	}
+
 	void Window::SetSize(int width, int height)
 	{
 		m_Width = width;
