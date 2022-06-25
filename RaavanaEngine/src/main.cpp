@@ -1,3 +1,4 @@
+#include "repch.h"
 #include "window/window.h"
 
 int main() {
@@ -10,8 +11,11 @@ int main() {
 
 	while (!window.ShouldClose()) {
 		glClear(GL_COLOR_BUFFER_BIT);
-		window.SwapBuffers();
-		window.PollEvents();
+		if (window.IsKeyPressed(RE_KEY_ENTER)) {
+			std::cout << "A key pressed" << std::endl;
+		}
+		window.Update();
+
 
 	}
 }
