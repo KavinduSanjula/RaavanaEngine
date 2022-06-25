@@ -1,28 +1,17 @@
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
+#include "window/window.h"
 
 int main() {
-	GLFWwindow* window;
-	if (!glfwInit())
-		return -1;
+	RE::Window window(1280, 720, "Raavana Engine");
 
-	window = glfwCreateWindow(1280, 720, "Raavana Engine", NULL, NULL);
-	if (!window) {
-		glfwTerminate();
+	if (window.HasErrors())
 		return -1;
-	}
-
-	glfwMakeContextCurrent(window);
-	glewInit();
 
 	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 
-	while (!glfwWindowShouldClose(window)) {
+	while (!window.ShouldClose()) {
 		glClear(GL_COLOR_BUFFER_BIT);
-		glfwSwapBuffers(window);
-		glfwPollEvents();
-	}
+		window.SwapBuffers();
+		window.PollEvents();
 
-	glfwTerminate();
-	return 0;
+	}
 }

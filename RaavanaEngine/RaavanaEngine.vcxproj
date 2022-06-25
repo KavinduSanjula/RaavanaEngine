@@ -74,14 +74,14 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin-int\$(Configuration)\</IntDir>
-    <IncludePath>$(ProjectDir)vender;$(ProjectDir)dependences\GLEW\include;$(ProjectDir)dependences\GLFW\include;$(ProjectDir)src;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)vender;$(ProjectDir)dependences\GLEW\include;$(ProjectDir)dependences\GLFW\include;$(ProjectDir)src\RE\core;$(ProjectDir)src;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)dependences\GLFW\lib-vc2019;$(ProjectDir)dependences\GLEW\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)bin-int\$(Configuration)\</IntDir>
-    <IncludePath>$(ProjectDir)vender;$(ProjectDir)dependences\GLEW\include;$(ProjectDir)dependences\GLFW\include;$(ProjectDir)src;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)vender;$(ProjectDir)dependences\GLEW\include;$(ProjectDir)dependences\GLFW\include;$(ProjectDir)src\RE\core;$(ProjectDir)src;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)dependences\GLFW\lib-vc2019;$(ProjectDir)dependences\GLEW\lib\Release\Win32;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -150,6 +150,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\RE\core\window\window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\RE\core\core.h" />
+    <ClInclude Include="src\RE\core\window\window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
