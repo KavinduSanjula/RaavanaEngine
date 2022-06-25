@@ -7,6 +7,7 @@
 
 
 #define MAX_KEY_COUNT 1024
+#define MAX_MOUSE_BUTTONS 5
 
 #define RE_KEY_A 65
 #define RE_KEY_B 66
@@ -16,7 +17,13 @@
 #define RE_KEY_F 69
 #define RE_KEY_ENTER  GLFW_KEY_ENTER
 
+
+
 namespace RE {
+
+	struct CursorPos {
+		double x, y;
+	};
 
 	class Window {
 
@@ -28,6 +35,9 @@ namespace RE {
 		GLFWwindow* m_Window;
 
 		bool m_Keys[MAX_KEY_COUNT]{};
+		bool m_MouseButtons[MAX_MOUSE_BUTTONS]{};
+
+		CursorPos m_CursorPosition;
 
 	public:
 		Window(int width, int height, const std::string& title);
@@ -39,17 +49,22 @@ namespace RE {
 		void Update();
 
 		bool IsKeyPressed(int key) const;
+		bool IsMouseButtonPressed(int button) const;
+
+		inline CursorPos GetCursorPosition() const { return m_CursorPosition; }
 
 
 		void DumpGlInfo() const;
-		
 
 	private:
-		void SetSize(int width, int height);
+		void ClearInputs();
+		
 
 	private:
 		friend static void window_size_callback(GLFWwindow* window, int width, int height);
 		friend static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+		friend static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+		friend static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos);
 	};
 
 	

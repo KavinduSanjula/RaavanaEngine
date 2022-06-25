@@ -15,11 +15,17 @@ int main() {
 
 	while (!window.ShouldClose()) {
 		glClear(GL_COLOR_BUFFER_BIT);
-		if (window.IsKeyPressed(RE_KEY_ENTER)) {
-			std::cout << "A key pressed" << std::endl;
-		}
+		
+
+
+		glBegin(GL_TRIANGLES);
+
+		glVertex2f(-0.5f, -0.5f);
+		glVertex2f( 0.5f, -0.5f);
+		glVertex2f( 0.0f,  0.5f);
+
+		glEnd();
+
 		window.Update();
-
-
 	}
 }
