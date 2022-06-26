@@ -9,6 +9,11 @@ namespace RE {
 	static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 	static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos);
 
+	Ref<Window> Window::Create(int width, int height, const std::string& title)
+	{
+		return std::make_shared<Window>(width, height, title);
+	}
+
 	Window::Window(int width, int height, const std::string& title)
 		:m_Width(width), m_Height(height), m_Title(title), m_Error(false), m_Window(nullptr), m_CursorPosition({0,0})
 	{
@@ -23,6 +28,8 @@ namespace RE {
 			glfwTerminate();
 			return;
 		}
+
+		LOG_INF("Window Created!");
 
 		glfwMakeContextCurrent(m_Window);
 		glewInit();
@@ -40,7 +47,9 @@ namespace RE {
 	Window::~Window()
 	{
 		glfwTerminate();
+		LOG_INF("Window Destroyed!");
 	}
+
 
 	bool Window::ShouldClose() const
 	{

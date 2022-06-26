@@ -1,4 +1,5 @@
 #pragma once
+#include "repch.h"
 #include "spdlog/spdlog.h"
 
 #define DEBUG
@@ -18,3 +19,12 @@
 #define LOG_CRITICAL(x)
 
 #endif
+
+namespace RE {
+
+	template<typename T>
+	using Ref = std::shared_ptr<T>;
+
+	template<typename T>
+	using Scope = std::unique_ptr<T>;
+}

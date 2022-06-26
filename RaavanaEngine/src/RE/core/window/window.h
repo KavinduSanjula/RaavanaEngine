@@ -1,6 +1,7 @@
 #pragma once
 
 #include "repch.h"
+#include "core.h"
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -38,10 +39,12 @@ namespace RE {
 		bool m_MouseButtons[MAX_MOUSE_BUTTONS]{};
 
 		CursorPos m_CursorPosition;
+	
 
 	public:
 		Window(int width, int height, const std::string& title);
 		~Window();
+		static Ref<Window> Create(int width, int height, const std::string& title);
 
 		inline bool HasErrors() const { return m_Error; }
 		bool ShouldClose() const;
