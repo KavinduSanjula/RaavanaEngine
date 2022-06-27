@@ -33,6 +33,8 @@ namespace RE {
 
 		glfwMakeContextCurrent(m_Window);
 		glewInit();
+		glEnable(GL_DEBUG_OUTPUT);
+		glDebugMessageCallback(MessageCallback,0);
 
 		glfwSetWindowUserPointer(m_Window, this); //set user pointer for this instance
 
