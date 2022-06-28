@@ -8,11 +8,12 @@ namespace RE {
 		return std::make_shared<IndexBuffer>(data, size, mode);
 	}
 
-	IndexBuffer::IndexBuffer(const void* data, uint32_t size, uint32_t mode)
+	IndexBuffer::IndexBuffer(const void* data, uint32_t count, uint32_t mode)
+		:m_IndexCount(count)
 	{
 		glGenBuffers(1, &m_RendererID);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_RendererID);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, data, mode);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(uint32_t), data, mode);
 	}
 
 	IndexBuffer::~IndexBuffer()
