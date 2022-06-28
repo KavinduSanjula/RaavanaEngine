@@ -24,6 +24,7 @@ namespace RE {
 		ShaderSource m_Source;
 
 	public:
+		static Ref<Shader> Create(const std::string& shaderPath);
 		Shader(const std::string& shaderPath);
 		~Shader();
 

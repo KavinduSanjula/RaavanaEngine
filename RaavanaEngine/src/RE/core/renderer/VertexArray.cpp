@@ -4,6 +4,10 @@
 
 namespace RE {
 
+	Ref<VertexArray> VertexArray::Create() {
+		return std::make_shared<VertexArray>();
+	}
+
 	VertexArray::VertexArray()
 	{
 		glGenVertexArrays(1, &m_RendererID);

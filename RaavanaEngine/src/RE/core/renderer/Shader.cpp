@@ -3,6 +3,10 @@
 
 namespace RE {
 
+	Ref<Shader> Shader::Create(const std::string& shaderPath) {
+		return std::make_shared<Shader>(shaderPath);
+	}
+
 	Shader::Shader(const std::string& shaderPath)
 		:m_ShaderPath(shaderPath)
 	{

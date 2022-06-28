@@ -2,6 +2,12 @@
 
 #include "window/window.h"
 
+#include "renderer/VertexBuffer.h"
+#include "renderer/VertexArray.h"
+#include "renderer/IndexBuffer.h"
+#include "renderer/Shader.h"
+
+
 int main() {
 	
 	RE::Ref<RE::Window> window = RE::Window::Create(1280, 720, "Raavana Engine");
@@ -21,6 +27,8 @@ int main() {
 	};
 
 	uint32_t indeces[] = { 0,1,2 };
+
+
 
 
 	while (!window->ShouldClose()) {

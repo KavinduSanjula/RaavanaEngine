@@ -14,6 +14,7 @@ namespace RE {
 		uint32_t m_RendererID;
 
 	public:
+		static Ref<VertexArray> Create();
 		VertexArray();
 		~VertexArray();
 
