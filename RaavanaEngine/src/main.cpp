@@ -20,6 +20,8 @@ int main() {
 		 0.0f,  0.5f, 0.0f,
 	};
 
+	uint32_t indeces[] = { 0,1,2 };
+
 
 	while (!window->ShouldClose()) {
 
