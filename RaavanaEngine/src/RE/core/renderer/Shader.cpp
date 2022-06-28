@@ -3,6 +3,9 @@
 
 namespace RE {
 
+	void create_error_shader(ShaderSource& source);
+
+
 	Ref<Shader> Shader::Create(const std::string& shaderPath) {
 		return std::make_shared<Shader>(shaderPath);
 	}
@@ -47,10 +50,11 @@ namespace RE {
 
 		if (!file.is_open()) {
 			LOG_ERR("File not found " + m_ShaderPath);
-			ASSERT(false);
+			create_error_shader(m_Source);
+			return;
 		}
 
-		int i = 0;
+		int i = -1;
 		while (getline(file, line)) {
 
 			if (line.find("#type Fragment") != line.npos) {
@@ -61,8 +65,15 @@ namespace RE {
 				i = 0;
 				continue;
 			}
+			if (i != -1) {
+				m_Source[i] += line + "\n";
+			}
+		}
 
-			m_Source[i] += line + "\n";
+		if (i == -1)
+		{
+			create_error_shader(m_Source);
+			return;
 		}
 	}
 
@@ -84,6 +95,26 @@ namespace RE {
 		}
 
 		return shader;
+	}
+
+	void create_error_shader(ShaderSource& source) {
+		std::string vs = "\n"
+			"#version 330 core \n"
+			"layout (location = 0) in vec3 aPos; \n"
+			"void main() { \n"
+			"gl_Position = vec4(aPos,1.0); \n"
+			"} \n";
+
+		std::string fs = "\n"
+			"#version 330 core \n"
+			"out vec4 Color; \n"
+			"void main() \n"
+			" { \n"
+			"Color = vec4(1.0,0.0,1.0,1.0); \n"
+			"} \n";
+
+		source.VertexShaderSource = vs;
+		source.FragmentShaderSource = fs;
 	}
 
 }
