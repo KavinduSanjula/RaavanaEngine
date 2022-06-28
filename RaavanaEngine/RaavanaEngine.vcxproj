@@ -156,6 +156,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\RE\core\renderer\IndexBuffer.cpp" />
     <ClCompile Include="src\RE\core\renderer\opengl.cpp" />
+    <ClCompile Include="src\RE\core\renderer\Shader.cpp" />
     <ClCompile Include="src\RE\core\renderer\VertexBuffer.cpp" />
     <ClCompile Include="src\RE\core\repch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -167,6 +168,7 @@
     <ClInclude Include="src\RE\core\core.h" />
     <ClInclude Include="src\RE\core\renderer\IndexBuffer.h" />
     <ClInclude Include="src\RE\core\renderer\opengl.h" />
+    <ClInclude Include="src\RE\core\renderer\Shader.h" />
     <ClInclude Include="src\RE\core\renderer\VertexBuffer.h" />
     <ClInclude Include="src\RE\core\repch.h" />
     <ClInclude Include="src\RE\core\window\window.h" />
