@@ -78,6 +78,7 @@ namespace RE {
 		glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
 
 		if (!success) {
+			glGetShaderInfoLog(shader, 512, NULL, infoLog);
 			std::cout << infoLog << std::endl;
 			ASSERT(false);
 		}
