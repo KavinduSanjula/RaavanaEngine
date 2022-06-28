@@ -6,6 +6,7 @@
 #include "renderer/VertexArray.h"
 #include "renderer/IndexBuffer.h"
 #include "renderer/Shader.h"
+#include "renderer/BasicRenderer.h"
 #include "utils/VertexBufferLayout.h"
 
 
@@ -43,11 +44,12 @@ int main() {
 	ib->Bind();
 	shader->Bind();
 
+	RE::BasicRenderer renderer;
+
 	while (!window->ShouldClose()) {
 
-		glClear(GL_COLOR_BUFFER_BIT);
-
-		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+		renderer.Clear();
+		renderer.Draw(va, ib, shader);
 
 		window->Update();
 	}
