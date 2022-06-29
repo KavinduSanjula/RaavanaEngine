@@ -11,7 +11,7 @@ namespace RE {
 		uint32_t m_IndexCount;
 
 	public:
-		static Ref<IndexBuffer> Create(const void* data, uint32_t size, uint32_t mode);
+		static Ref<IndexBuffer> Create(const void* data, uint32_t count, uint32_t mode);
 
 		IndexBuffer(const void* data, uint32_t count, uint32_t mode);
 		~IndexBuffer();
