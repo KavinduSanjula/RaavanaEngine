@@ -6,7 +6,7 @@ namespace RE {
 
 	class Quad {
 	private:
-		Vertex m_Verticis[4]{};
+		std::array<Vertex, 4> m_Vertices;
 
 		vec2 m_Pos;
 		vec2 m_Size;
@@ -15,6 +15,8 @@ namespace RE {
 	public:
 		Quad(const RE::vec2& pos, const RE::vec2& size, const RE::vec4& color);
 		~Quad();
+
+		inline std::array<Vertex, 4> GetVertices() const { return m_Vertices; }
 	};
 
 }
