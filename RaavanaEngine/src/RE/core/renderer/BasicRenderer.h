@@ -16,7 +16,7 @@ namespace RE {
 		~BasicRenderer() = default;
 
 		void Clear() const;
-		void Draw(const Ref<VertexArray>& va,const Ref<IndexBuffer>& ib, const Ref<Shader>& shader) const;
+		void Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader,uint32_t indexCount) const;
 		void SetClearColor(float r, float g, float b, float a);
 	};
 }

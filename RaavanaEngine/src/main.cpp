@@ -13,13 +13,23 @@ int main() {
 
 	window->DumpGlInfo();
 
-	RE::Quad q({-0.5f,-0.5f}, { 1, 1 }, { 1,.2,0.4,1 });
-	RE::Renderer2D renderer(q);
+	RE::Renderer2D renderer;
 
 
 	while (!window->ShouldClose()) {
+		renderer.Clear();
 
-		renderer.Draw();
+		renderer.BeginBatch();
+		for (int x = 0; x < 1280; x += 20) {
+			for (int y = 0; y < 720; y += 20) {
+				RE::vec2 pos({ (float)x,(float)y });
+				RE::Quad q(pos, { 19,19 }, { 1.0,1.0,0.0,1.0 });
+				renderer.Submit(q);
+			}
+		}
+		renderer.Flush();
+
+		LOG_INF(renderer.GetDrawCallCount());
 		window->Update();
 	}
 

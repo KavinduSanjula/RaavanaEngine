@@ -43,6 +43,11 @@ namespace RE {
 		glUseProgram(0);
 	}
 
+	void Shader::SetUniformMat4(const std::string& name, glm::mat4& mat)
+	{
+		glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, &mat[0][0]);
+	}
+
 	void Shader::ReadShader()
 	{
 		std::ifstream file(m_ShaderPath);
@@ -75,6 +80,12 @@ namespace RE {
 			create_error_shader(m_Source);
 			return;
 		}
+	}
+
+	int Shader::GetUniformLocation(const std::string& name)
+	{
+		int location = glGetUniformLocation(m_RendererID, name.c_str());
+		return location;
 	}
 
 	uint32_t Shader::compile_shader(uint32_t type, std::string shaderSource) const
