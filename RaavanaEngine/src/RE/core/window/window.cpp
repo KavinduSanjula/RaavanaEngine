@@ -128,7 +128,7 @@ namespace RE {
 	static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {
 		Window* win = (Window*)glfwGetWindowUserPointer(window);
 		win->m_CursorPosition.x = xpos;
-		win->m_CursorPosition.y = ypos;
+		win->m_CursorPosition.y = win->m_Height-ypos; // map to NDC
 	}
 
 }
