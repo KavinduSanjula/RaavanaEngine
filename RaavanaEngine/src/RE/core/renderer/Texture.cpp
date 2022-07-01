@@ -1,6 +1,7 @@
 #include "repch.h"
 #include "Texture.h"
 
+
 namespace RE {
 
 
@@ -13,7 +14,7 @@ namespace RE {
 		:m_Width(0), m_Height(0), m_NrChannels(0), m_RendererID(0), m_LocalBuffer(nullptr)
 
 	{
-		if (filepath == "NO_TEXTURE") {
+		if (filepath == NO_TEXTURE) {
 			unsigned char data[] = { 255,255,255,255 };
 			m_LocalBuffer = data;
 			m_Width = 1;

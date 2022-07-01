@@ -53,6 +53,11 @@ namespace RE {
 		glUniform1i(GetUniformLocation(name), val);
 	}
 
+	void Shader::SetUniformArrayI(const std::string& name, uint32_t count, int* data)
+	{
+		glUniform1iv(GetUniformLocation(name), count, data);
+	}
+
 	void Shader::ReadShader()
 	{
 		std::ifstream file(m_ShaderPath);

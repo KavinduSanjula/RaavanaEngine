@@ -9,6 +9,7 @@ namespace RE {
 		vec3 Position;
 		vec4 Color;
 		vec2 TexCoord;
+		float TexID;
 
 		static VertexBufferLayout GetLayout() {
 
@@ -16,6 +17,7 @@ namespace RE {
 			layout.Push<float>(3);
 			layout.Push<float>(4);
 			layout.Push<float>(2);
+			layout.Push<float>(1);
 
 			return layout;
 		}

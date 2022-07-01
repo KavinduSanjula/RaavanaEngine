@@ -10,6 +10,7 @@
 #include "shapes/Quad.h"
 
 #define MAX_QUAD_COUNT 100
+#define MAX_TEXTURE_COUNT 10
 
 
 namespace RE {
@@ -21,6 +22,7 @@ namespace RE {
 		int m_PtrOffset = 0;
 		int m_DrawCallCount = 0;
 		int m_IndexToDraw = 0;
+		float m_TextureID = 1;
 
 		Vertex m_Vertices[4 * MAX_QUAD_COUNT];
 		uint32_t m_Indeces[6 * MAX_QUAD_COUNT];
@@ -30,6 +32,9 @@ namespace RE {
 		Ref<VertexBuffer> m_VB;
 		Ref<IndexBuffer> m_IB;
 		Ref<Shader> m_Shader;
+
+		std::unordered_map<std::string, float> m_TextureMap;
+		std::array<Ref<Texture>, MAX_TEXTURE_COUNT> m_Textures;
 
 		BasicRenderer m_Renderer;
 
@@ -46,6 +51,7 @@ namespace RE {
 	private:
 		void Draw();
 		void GenerateIndeces();
+		void CreateTexture(const Quad& path);
 
 	};
 
