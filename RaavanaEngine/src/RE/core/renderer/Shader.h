@@ -36,6 +36,7 @@ namespace RE {
 		inline uint32_t GetRendererID() const { return m_RendererID; }
 
 		void SetUniformMat4(const std::string& name, glm::mat4& mat);
+		void SetUniformI1(const std::string& name, int val);
 
 	private:
 		void ReadShader();

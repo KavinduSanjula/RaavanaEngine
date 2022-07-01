@@ -5,6 +5,7 @@
 #include "renderer/VertexBuffer.h"
 #include "renderer/IndexBuffer.h"
 #include "renderer/Shader.h"
+#include "renderer/Texture.h"
 #include "renderer/BasicRenderer.h"
 #include "shapes/Quad.h"
 

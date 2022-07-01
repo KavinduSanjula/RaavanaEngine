@@ -15,7 +15,8 @@ int main() {
 
 	RE::Renderer2D renderer;
 
-	RE::Quad quad({ 540,310 }, { 200,100 }, { 1.0,1.0,0.0,1.0 });
+	RE::Quad quad({ 400,300 }, { 500,250 }, { 1.0,1.0,0.0,1.0 });
+	RE::Quad quad2({ 20,20 }, { 500,250 }, { 1.0,1.0,0.0,1.0 });
 
 
 	while (!window->ShouldClose()) {
@@ -23,10 +24,11 @@ int main() {
 
 		renderer.BeginBatch();
 		renderer.Submit(quad);
+		renderer.Submit(quad2);
 		renderer.Flush();
 
-		LOG_INF(renderer.GetDrawCallCount());
+		//LOG_INF(renderer.GetDrawCallCount());
 		window->Update();
 	}
-
+	//system("PAUSE");
 }

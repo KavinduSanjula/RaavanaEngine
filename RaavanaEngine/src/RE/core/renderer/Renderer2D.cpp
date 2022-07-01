@@ -18,8 +18,12 @@ namespace RE {
 
 		glm::mat4 proj = glm::ortho(0.0f, 1280.0f, 0.0f, 720.0f, -1.0f, 1.0f);
 
+		Texture tex("res/cover.jpg");
+		tex.Bind(0);
+
 		m_Shader->Bind();
 		m_Shader->SetUniformMat4("uProj", proj);
+		m_Shader->SetUniformI1("uTexture", 0);
 		m_Shader->Unbind();
 
 		m_IB->SetData(m_Indeces, sizeof(m_Indeces));

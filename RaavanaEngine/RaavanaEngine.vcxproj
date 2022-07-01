@@ -159,6 +159,7 @@
     <ClCompile Include="src\RE\core\renderer\opengl.cpp" />
     <ClCompile Include="src\RE\core\renderer\Renderer2D.cpp" />
     <ClCompile Include="src\RE\core\renderer\Shader.cpp" />
+    <ClCompile Include="src\RE\core\renderer\Texture.cpp" />
     <ClCompile Include="src\RE\core\renderer\VertexArray.cpp" />
     <ClCompile Include="src\RE\core\renderer\VertexBuffer.cpp" />
     <ClCompile Include="src\RE\core\repch.cpp">
@@ -168,6 +169,7 @@
     <ClCompile Include="src\RE\core\shapes\Quad.cpp" />
     <ClCompile Include="src\RE\core\utils\VertexBufferLayout.cpp" />
     <ClCompile Include="src\RE\core\window\window.cpp" />
+    <ClCompile Include="vender\stb-image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\RE\core\core.h" />
@@ -177,6 +179,7 @@
     <ClInclude Include="src\RE\core\renderer\opengl.h" />
     <ClInclude Include="src\RE\core\renderer\Renderer2D.h" />
     <ClInclude Include="src\RE\core\renderer\Shader.h" />
+    <ClInclude Include="src\RE\core\renderer\Texture.h" />
     <ClInclude Include="src\RE\core\renderer\VertexArray.h" />
     <ClInclude Include="src\RE\core\renderer\VertexBuffer.h" />
     <ClInclude Include="src\RE\core\repch.h" />
@@ -283,6 +286,7 @@
     <ClInclude Include="vender\spdlog\stopwatch.h" />
     <ClInclude Include="vender\spdlog\tweakme.h" />
     <ClInclude Include="vender\spdlog\version.h" />
+    <ClInclude Include="vender\stb-image\stb_image.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

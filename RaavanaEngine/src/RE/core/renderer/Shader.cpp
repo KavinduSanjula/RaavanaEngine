@@ -48,6 +48,11 @@ namespace RE {
 		glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, &mat[0][0]);
 	}
 
+	void Shader::SetUniformI1(const std::string& name, int val)
+	{
+		glUniform1i(GetUniformLocation(name), val);
+	}
+
 	void Shader::ReadShader()
 	{
 		std::ifstream file(m_ShaderPath);
