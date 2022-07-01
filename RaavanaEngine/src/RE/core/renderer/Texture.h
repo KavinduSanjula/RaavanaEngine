@@ -15,11 +15,16 @@ namespace RE {
 		unsigned char* m_LocalBuffer;
 
 	public:
+		static Ref<Texture> Create(const std::string& filename);
 		Texture(const std::string& filepath);
 		~Texture();
 
 		void Bind(unsigned int slot = 0) const;
 		void Unbind();
+
+	private:
+		void CreateTexture();
 	};
+
 
 }
