@@ -6,9 +6,9 @@
 namespace RE {
 
 	struct Vertex {
-		vec3 Position;
-		vec4 Color;
-		vec2 TexCoord;
+		Float3 Position;
+		Float4 Color;
+		Float2 TexCoord;
 		float TexID;
 
 		static VertexBufferLayout GetLayout() {
