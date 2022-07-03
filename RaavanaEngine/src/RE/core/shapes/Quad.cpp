@@ -4,13 +4,15 @@
 
 namespace RE {
 
-	void make_quad(std::array<Vertex, 4>& arr, vec2 pos, vec2 size, vec4 color, float texID);
+	void make_quad(std::array<Vertex, 4>& arr, Float2 pos, Float2 size, Float4 color, float texID);
 
 
-	Quad::Quad(const RE::vec2& pos, const RE::vec2& size, const RE::vec4& color, const std::string& texture)
+
+
+	Quad::Quad(const Float2& pos, const Float2& size, const std::string& texture, const Float4& color /*= {1.0,1.0,1.0,1.0}*/)
 		:m_Pos(pos), m_Size(size), m_Color(color), m_TexturePath(texture)
 	{
-		make_quad(m_Vertices, m_Pos,m_Size,m_Color,0);
+		make_quad(m_Vertices, m_Pos, m_Size, m_Color, 0);
 	}
 
 	Quad::~Quad()
@@ -23,7 +25,7 @@ namespace RE {
 		make_quad(m_Vertices, m_Pos, m_Size, m_Color, texID);
 	}
 
-	void make_quad(std::array<Vertex, 4>& arr, vec2 pos, vec2 size, vec4 color, float texID) {
+	void make_quad(std::array<Vertex, 4>& arr, Float2 pos, Float2 size, Float4 color, float texID) {
 		arr[0].Position = { pos.x, pos.y, 0 };
 		arr[0].Color = color;
 		arr[0].TexCoord = { 0,0};

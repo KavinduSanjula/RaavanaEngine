@@ -15,10 +15,11 @@ int main() {
 
 	RE::Renderer2D* renderer = new RE::Renderer2D;
 
+	LOG_INF(sizeof(RE::Renderer2D));
 
-	RE::Quad quad({ 400,300 }, { 500,250 }, { 1.0,1.0,0.0,1.0 }, "res/cover.jpg");
-	RE::Quad quad2({ 20,20 }, { 250,250 }, { 1.0,1.0,1.0,1.0 }, "res/sanju.jpg");
-	RE::Quad quad3({ 300,20 }, { 250,250 }, { 1.0,1.0,0.0,1.0 });
+	RE::Quad quad({ 400,300 }, { 500,250 }, "res/cover.jpg", {0.3,0.3,1.0,1.0});
+	RE::Quad quad2({ 20,20 }, { 250,250 }, "res/sanju.jpg", {1.0,0.0,0.0,1.0});
+	RE::Quad quad3({ 300,20 }, { 250,250 }, NO_TEXTURE, { 1.0,1.0,0.0,1.0 });
 
 
 	while (!window->ShouldClose()) {
@@ -30,7 +31,7 @@ int main() {
 		renderer->Submit(quad3);
 		renderer->Flush();
 
-		LOG_INF(renderer->GetDrawCallCount());
+		//LOG_INF(renderer->GetDrawCallCount());
 		window->Update();
 	}
 
