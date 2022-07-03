@@ -3,15 +3,15 @@
 
 namespace RE {
 
-	struct vec4 {
+	struct Float4 {
 		float x, y, z, w;
 	};
 
-	struct vec3 {
+	struct Float3 {
 		float x, y, z;
 	};
 
-	struct vec2 {
+	struct Float2 {
 		float x, y;
 	};
 

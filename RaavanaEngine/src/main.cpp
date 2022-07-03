@@ -13,14 +13,27 @@ int main() {
 
 	window->DumpGlInfo();
 
-	RE::Quad q({-0.5f,-0.5f}, { 1, 1 }, { 1,.2,0.4,1 });
-	RE::Renderer2D renderer(q);
+	RE::Renderer2D* renderer = new RE::Renderer2D;
+
+	LOG_INF(sizeof(RE::Renderer2D));
+
+	RE::Quad quad({ 400,300 }, { 500,250 }, "res/cover.jpg", {0.3,0.3,1.0,1.0});
+	RE::Quad quad2({ 20,20 }, { 250,250 }, "res/sanju.jpg", {1.0,0.0,0.0,1.0});
+	RE::Quad quad3({ 300,20 }, { 250,250 }, NO_TEXTURE, { 1.0,1.0,0.0,1.0 });
 
 
 	while (!window->ShouldClose()) {
+		renderer->Clear();
+				
+		renderer->BeginBatch();
+		renderer->Submit(quad);
+		renderer->Submit(quad2);
+		renderer->Submit(quad3);
+		renderer->Flush();
 
-		renderer.Draw();
+		//LOG_INF(renderer->GetDrawCallCount());
 		window->Update();
 	}
 
+	delete(renderer);
 }

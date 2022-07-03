@@ -3,6 +3,8 @@
 #include "core.h"
 #include "opengl.h"
 
+#include "glm/glm.hpp"
+
 namespace RE {
 
 	struct ShaderSource {
@@ -33,8 +35,13 @@ namespace RE {
 
 		inline uint32_t GetRendererID() const { return m_RendererID; }
 
+		void SetUniformMat4(const std::string& name, glm::mat4& mat);
+		void SetUniformI1(const std::string& name, int val);
+		void SetUniformArrayI(const std::string& name, uint32_t count, int* data);
+
 	private:
 		void ReadShader();
+		int GetUniformLocation(const std::string& name);
 
 		uint32_t compile_shader(uint32_t type, std::string shaderSource) const;
 	};

@@ -2,21 +2,26 @@
 #include "repch.h"
 #include "Vertex.h"
 
+
 namespace RE {
 
 	class Quad {
 	private:
-		std::array<Vertex, 4> m_Vertices;
+		mutable std::array<Vertex, 4> m_Vertices;
+		std::string m_TexturePath;
 
-		vec2 m_Pos;
-		vec2 m_Size;
-		vec4 m_Color;
+		Float2 m_Pos;
+		Float2 m_Size;
+		Float4 m_Color;
 
 	public:
-		Quad(const RE::vec2& pos, const RE::vec2& size, const RE::vec4& color);
+		Quad(const Float2& pos, const Float2& size, const std::string& texture, const Float4& color = {1.0,1.0,1.0,1.0});
 		~Quad();
 
 		inline std::array<Vertex, 4> GetVertices() const { return m_Vertices; }
+		inline std::string GetTexturePath() const { return m_TexturePath; }
+
+		void SetTextureID(float texID) const;
 	};
 
 }
