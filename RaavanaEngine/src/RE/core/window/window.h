@@ -10,12 +10,12 @@
 #define MAX_KEY_COUNT 1024
 #define MAX_MOUSE_BUTTONS 5
 
-#define RE_KEY_A 65
-#define RE_KEY_B 66
-#define RE_KEY_C 66
-#define RE_KEY_D 67
-#define RE_KEY_E 68
-#define RE_KEY_F 69
+#define RE_KEY_A GLFW_KEY_A
+#define RE_KEY_B GLFW_KEY_B
+#define RE_KEY_C GLFW_KEY_C
+#define RE_KEY_D GLFW_KEY_D
+#define RE_KEY_E GLFW_KEY_E
+#define RE_KEY_F GLFW_KEY_F
 #define RE_KEY_ENTER  GLFW_KEY_ENTER
 
 

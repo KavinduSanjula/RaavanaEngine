@@ -155,6 +155,7 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\RE\core\renderer\BasicRenderer.cpp" />
+    <ClCompile Include="src\RE\core\renderer\Camera.cpp" />
     <ClCompile Include="src\RE\core\renderer\IndexBuffer.cpp" />
     <ClCompile Include="src\RE\core\renderer\opengl.cpp" />
     <ClCompile Include="src\RE\core\renderer\Renderer2D.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="src\RE\core\core.h" />
     <ClInclude Include="src\RE\core\math\vector.h" />
     <ClInclude Include="src\RE\core\renderer\BasicRenderer.h" />
+    <ClInclude Include="src\RE\core\renderer\Camera.h" />
     <ClInclude Include="src\RE\core\renderer\IndexBuffer.h" />
     <ClInclude Include="src\RE\core\renderer\opengl.h" />
     <ClInclude Include="src\RE\core\renderer\Renderer2D.h" />

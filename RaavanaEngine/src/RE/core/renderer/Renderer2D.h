@@ -8,6 +8,7 @@
 #include "renderer/Texture.h"
 #include "renderer/BasicRenderer.h"
 #include "shapes/Quad.h"
+#include "Camera.h"
 
 #define MAX_QUAD_COUNT 100
 #define MAX_TEXTURE_COUNT 10
@@ -32,6 +33,7 @@ namespace RE {
 		Ref<VertexBuffer> m_VB;
 		Ref<IndexBuffer> m_IB;
 		Ref<Shader> m_Shader;
+		Ref<Camera> m_Camera;
 
 		std::unordered_map<std::string, float> m_TextureMap;
 		std::array<Ref<Texture>, MAX_TEXTURE_COUNT> m_Textures;
@@ -39,7 +41,7 @@ namespace RE {
 		BasicRenderer m_Renderer;
 
 	public:
-		Renderer2D();
+		Renderer2D(Ref<Camera>& camera);
 
 		void BeginBatch();
 		void Submit(const Quad& quad);

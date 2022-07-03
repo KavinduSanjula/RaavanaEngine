@@ -6,7 +6,8 @@
 namespace RE {
 
 
-	Renderer2D::Renderer2D()
+	Renderer2D::Renderer2D(Ref<Camera>& camera)
+		:m_Camera(camera)
 	{
 
 		GenerateIndeces();
@@ -16,12 +17,9 @@ namespace RE {
 		m_IB = IndexBuffer::Create(nullptr, MAX_QUAD_COUNT * 6, GL_DYNAMIC_DRAW);
 		m_Shader = Shader::Create("res/basic.shader");
 
-		glm::mat4 proj = glm::ortho(0.0f, 1280.0f, 0.0f, 720.0f, -1.0f, 1.0f);
-
 		int texIDs[] = { 0,1,2,3,4,5,6,7,8,9,10 };
 
 		m_Shader->Bind();
-		m_Shader->SetUniformMat4("uProj", proj);
 		m_Shader->SetUniformArrayI("uTextures", MAX_TEXTURE_COUNT, texIDs);
 		m_Shader->Unbind();
 
@@ -31,6 +29,13 @@ namespace RE {
 
 	void Renderer2D::BeginBatch()
 	{
+		auto proj = m_Camera->GetViewProjection();
+		//proj = glm::ortho(0.0f, 1280.0f, 0.0f, 720.0f, -1.0f, 1.0f);
+
+		m_Shader->Bind();
+		m_Shader->SetUniformMat4("uProj", proj);
+		m_Shader->Unbind();
+
 		m_SubmitCount = 0;
 		m_PtrOffset = 0;
 		m_Quads.clear();
