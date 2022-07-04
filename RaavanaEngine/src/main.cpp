@@ -6,8 +6,10 @@
 #include "shapes/Quad.h"
 
 
+#include "RE/application/Application.h"
+
 int main() {
-	
+#if 0
 	RE::Ref<RE::Window> window = RE::Window::Create(1280, 720, "Raavana Engine");
 
 	if (window->HasErrors())
@@ -39,4 +41,14 @@ int main() {
 	}
 
 	delete(renderer);
+#endif
+
+	RE::Application* app = RE::Application::Create("Raavana Engine", 1280, 720);
+
+	app->OnStart();
+
+	while (!app->ShouldExit()) {
+		app->OnUpdate();
+	}
+
 }
