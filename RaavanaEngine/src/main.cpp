@@ -24,7 +24,6 @@ int main() {
 	RE::Quad quad3({ 300,20 }, { 250,250 }, NO_TEXTURE, { 1.0,1.0,0.0,1.0 });
 
 
-
 	while (!window->ShouldClose()) {
 
 		renderer->Clear();
