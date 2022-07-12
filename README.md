@@ -1,9 +1,9 @@
-# **Raavana Engine 1**<sup>©</sup>
-### Simple 2D Game Engine😉 (2022-06-24)
+# **Raavana Engine 1**<sup>©</sup> (Renderer)
+### Simple 2D Game Engine😉 (Renderer-Only) (2022-06-24)
 
 ---
 
-![Logo](icon.png) 
+![Logo](icon-renderer.png) 
 
 ---
 
@@ -19,4 +19,4 @@
 Platform :- Windows  
 Language :- C++  
 Graphic API :- OpenGL  
-Renderer :- 2D
+Renderer :- 2D-Quad
